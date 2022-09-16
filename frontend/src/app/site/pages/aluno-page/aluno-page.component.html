@@ -1,0 +1,62 @@
+<header>
+  <div class="info">
+    <span>Pagina do Aluno</span>
+  </div>
+</header>
+
+<div class="mt-4 mb-4 container">
+  <div class="row">
+    <div class="col">
+      <div>
+        <div>
+          <h2 class="font">Lista de alunos</h2>
+
+          <div>
+            <table
+              mat-table
+              [dataSource]="alunos"
+              class="mat-elevation-z8 tam-table"
+            >
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>Total Alunos</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.id }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef>Nome</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.nomeAluno }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="acao">
+                <th mat-header-cell *matHeaderCellDef>Solicitação</th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-flat-button *ngIf="temas[0]" color="primary">
+                    Enviar solicitação
+                  </button>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div *ngFor="let item of temas">
+        <div class="d-flex align-items-center">
+          <h3 class="me-3 font">Tema:</h3>
+          <h1 class="font-title">{{ item.title }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer></footer>

@@ -1,0 +1,22 @@
+<div class="mb-3">
+  <mat-form-field class="example-full-width tam-input">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" [(ngModel)]="loginProfessor.email" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width tam-input">
+    <mat-label>Senha</mat-label>
+    <input matInput type="password" [(ngModel)]="loginProfessor.senha" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width tam-input">
+    <mat-label>Token</mat-label>
+    <input matInput type="password" [(ngModel)]="loginProfessor.token" />
+  </mat-form-field>
+</div>
+
+<div class="d-flex justify-content-md-center">
+  <button mat-raised-button (click)="fazerLoginProfessor()" color="primary">
+    Login
+  </button>
+</div>

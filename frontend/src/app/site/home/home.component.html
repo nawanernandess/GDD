@@ -1,0 +1,30 @@
+<div class="row tam-tela">
+  <div class="col-4 background d-flex align-items-xl-center text-center">
+    <div class="p-3">
+      <h2>Bem Vindo</h2>
+      <p>
+        Essa é a GDD uma plataforma voltada para grupos de discussão, debates e
+        resolução de problemas, se conecte com outras pessoas e alcance o seu
+        objetivo!
+      </p>
+    </div>
+  </div>
+  <div class="col d-flex align-items-xl-center justify-content-md-center">
+    <div class="w-50">
+      <div class="mb-3">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle routerLink="/aluno" checked
+            >Aluno</mat-button-toggle
+          >
+          <mat-button-toggle routerLink="/professor"
+            >Professor</mat-button-toggle
+          >
+        </mat-button-toggle-group>
+      </div>
+
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+p {
+  font-size: 18px;
+  font-weight: 100;
+}
+h2 {
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 800;
+}
+.tam-tela {
+  height: 100vh;
+  width: 100%;
+}
+.background {
+  background-color: #58af9c;
+  color: #ffffff;
+}
+.w-50 {
+  width: 50%;
+}
+::ng-deep .mat-button-toggle-standalone,
+.mat-button-toggle-group {
+  border: none;
+  gap: 15px;
+}
+
+::ng-deep .mat-button-toggle-checked {
+  border-bottom: 4px solid #58af9c;
+  background-color: transparent;
+}
+
+::ng-deep
+  .mat-button-toggle-group-appearance-standard
+  .mat-button-toggle
+  + .mat-button-toggle {
+  border-left: none;
+}
+
+::ng-deep .mat-button-toggle-standalone.mat-button-toggle-appearance-standard,
+.mat-button-toggle-group-appearance-standard {
+  border-radius: 0px;
+}

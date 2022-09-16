@@ -1,0 +1,202 @@
+<header>
+  <div class="info">
+    <span>Pagina do professor</span>
+  </div>
+</header>
+
+<div class="mt-4 mb-4 container">
+  <div class="row">
+    <div class="col">
+      <div>
+        <div class="mb-5">
+          <h2 class="font">Adicinar alunos</h2>
+
+          <div class="d-flex align-items-center">
+            <form class="example-form me-4">
+              <mat-form-field class="example-full-width">
+                <mat-label>Nome do aluno</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="objetoAluno.nomeAluno"
+                  name="nome"
+                />
+              </mat-form-field>
+            </form>
+
+            <button
+              mat-raised-button
+              (click)="adicionarAluno()"
+              color="primary"
+            >
+              Adicionar aluno
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font">Lista de alunos</h2>
+
+          <div>
+            <table
+              mat-table
+              [dataSource]="alunos"
+              class="mat-elevation-z8 tam-table"
+            >
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>Total Alunos</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.id }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef>Nome</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.nomeAluno }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="acao">
+                <th mat-header-cell *matHeaderCellDef>Ação</th>
+                <td mat-cell *matCellDef="let element">
+                  <a
+                    class="me-4 delete"
+                    (click)="excluirAluno(excluir, element.id)"
+                  >
+                    <i class="material-icons">delete </i>
+                  </a>
+
+                  <a class="edit" (click)="editarNomeAluno(editar, element.id)">
+                    <i class="material-icons">edit </i>
+                  </a>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div *ngIf="!temas[0]">
+        <h2 class="font">Adicione aqui um tema para o debate</h2>
+        <div class="d-flex align-items-center">
+          <form class="example-form me-4">
+            <mat-form-field class="example-full-width">
+              <mat-label>Tema</mat-label>
+              <input matInput [(ngModel)]="objetoTema.title" name="title" />
+            </mat-form-field>
+          </form>
+
+          <div>
+            <button mat-raised-button (click)="adicionarTema()" color="primary">
+              Adicionar tema
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        *ngFor="let item of temas"
+        class="d-flex justify-content-around align-items-center"
+      >
+        <div class="d-flex align-items-center">
+          <h3 class="me-3 mb-0 font">Tema:</h3>
+          <h1 class="font-title mb-0">{{ item.title }}</h1>
+        </div>
+
+        <div>
+          <button
+            mat-flat-button
+            (click)="excluirTema(tema, item.id)"
+            color="warn"
+          >
+            Deletar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer></footer>
+
+<!-- Modal Editar -->
+<ng-template #editar>
+  <div class="p-20">
+    <h2 class="font">Editar nome do aluno</h2>
+
+    <div class="d-flex mb-4 justify-content-around">
+      <form class="example-form me-4">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nome do aluno</mat-label>
+          <input matInput [(ngModel)]="aluno.id" name="id" disabled />
+        </mat-form-field>
+      </form>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nome do aluno</mat-label>
+          <input matInput [(ngModel)]="aluno.nomeAluno" name="nome" />
+        </mat-form-field>
+      </form>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <button
+        mat-raised-button
+        (click)="atualizarNomeDoAluno()"
+        color="primary"
+      >
+        Editar
+      </button>
+
+      <button mat-raised-button (click)="close()" color="warn">Fechar</button>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Modal Excluir -->
+<ng-template #excluir>
+  <div class="p-20">
+    <div class="d-flex justify-content-center">
+      <i class="material-icons icone">error </i>
+    </div>
+
+    <p class="aviso">Tem certeza que deseja excluir esse aluno?</p>
+
+    <div class="d-flex justify-content-around">
+      <button mat-raised-button (click)="deletarAluno()" color="warn">
+        Deletar
+      </button>
+
+      <button mat-raised-button (click)="close()" color="primary">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Modal Tema -->
+<ng-template #tema>
+  <div class="p-20">
+    <div class="d-flex justify-content-center">
+      <i class="material-icons icone">error </i>
+    </div>
+
+    <p class="aviso">Tem certeza que deseja excluir esse Tema?</p>
+
+    <div class="d-flex justify-content-around">
+      <button mat-raised-button (click)="deletarTema()" color="warn">
+        Deletar
+      </button>
+
+      <button mat-raised-button (click)="close()" color="primary">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</ng-template>

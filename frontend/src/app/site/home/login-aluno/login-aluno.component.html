@@ -1,0 +1,16 @@
+<div class="mb-3">
+  <mat-form-field class="example-full-width tam-input">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" [(ngModel)]="loginAluno.email" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width tam-input">
+    <mat-label>Senha</mat-label>
+    <input matInput type="password" [(ngModel)]="loginAluno.senha" />
+  </mat-form-field>
+</div>
+<div class="d-flex justify-content-md-center">
+  <button mat-raised-button (click)="fazerLoginAluno()" color="primary">
+    Login
+  </button>
+</div>

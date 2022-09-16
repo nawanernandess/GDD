@@ -1,0 +1,38 @@
+{
+  "tema": [],
+  "loginProfessor": [
+    {
+      "email": "professor@gmail.com",
+      "senha": "12345678",
+      "token": "professor1"
+    }
+  ],
+  "loginAlunos": [
+    {
+      "email": "aluno1@gmail.com",
+      "senha": "12345678"
+    },
+    {
+      "email": "aluno2@gmail.com",
+      "senha": "1234567"
+    },
+    {
+      "email": "aluno3@gmail.com",
+      "senha": "12345678"
+    }
+  ],
+  "alunos": [
+    {
+      "id": 1,
+      "nomeAluno": "Nawan"
+    },
+    {
+      "id": 2,
+      "nomeAluno": "Inacio"
+    },
+    {
+      "id": 3,
+      "nomeAluno": "Ernandes"
+    }
+  ]
+}
